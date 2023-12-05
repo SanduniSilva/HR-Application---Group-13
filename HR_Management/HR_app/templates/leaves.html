@@ -1,0 +1,34 @@
+{% extends 'admin_base.html' %}
+
+{% block main %}
+
+<div class="card shadow m-2">
+    <div class="card-body">
+        <h5 class="p-2 text-danger" style="border-bottom : 2px solid purple">Leave Request details</h5>
+
+        <div class="container-fluid">
+        <table class="table table-bordered table-hover" id="example">
+            <thead class="text-bright bg-secondary" >
+            <tr>
+                <th>Emp_ID</th>
+                <th>Start date</th>
+                <th>End date</th>
+                <th>Reason</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in leave %}
+            <tr>
+                <td>{{i.empid}}</td>
+                <td>{{i.startdate}}</td>
+                <td>{{i.enddate}}</td>
+                <td>{{i.reason}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

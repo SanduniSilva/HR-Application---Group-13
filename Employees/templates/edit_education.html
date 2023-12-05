@@ -1,0 +1,115 @@
+{% extends 'admin_base.html' %}
+
+{% block main %}
+
+<div class="card shadow m-2">
+    <div class="card-body">
+        <h5 class="p-2 text-danger" style="border-bottom : 2px solid purple">Edit Employee Education Details</h5>
+
+        <div class="container-fluid">
+            <form method="post">
+                {% csrf_token%}
+
+            <table class="table table-bordered">
+                <tr>
+                    <th>Post Graduation Course Name</th>
+                    <td><input type="text" name="coursepg" class="form-control" value="{{education.coursepg}}"></td>
+                </tr>
+
+                <tr>
+                    <th>Post Graduate School/University</th>
+                    <td><input type="text" name="universitypg" class="form-control" value="{{education.universitypg}}"></td>
+                </tr>
+
+                <tr>
+                    <th>Year of Passing PG</th>
+                    <td><input type="text" name="pgraduationyr" class="form-control" value="{{education.pgraduationyr}}"></td>
+                </tr>
+
+                <tr>
+                    <th>Percent in PG</th>
+                    <td><input type="text" name="percentagepg" class="form-control" value="{{education.percentagepg}}"></td>
+                </tr>
+
+                <tr>
+                    <th>Graduation Course Name</th>
+                    <td><input type="text" name="coursegra" class="form-control" value="{{education.coursegra}}"></td>
+                </tr>
+
+                <tr>
+                    <th>Graduate School/University</th>
+                    <td><input type="text" name="universitygra" class="form-control" value="{{education.universitygra}}"></td>
+                </tr>
+
+                <tr>
+                    <th>Year of Passing Graduation</th>
+                    <td><input type="text" name="graduationyr" class="form-control" value="{{education.graduationyr}}"></td>
+                </tr>
+
+                <tr>
+                    <th>Percent in Graduation</th>
+                    <td><input type="text" name="percentagegr" class="form-control" value="{{education.percentagegr}}"></td>
+                </tr>
+
+                <tr>
+                    <th>SSC Course Name</th>
+                    <td><input type="text" name="coursessc" class="form-control" value="{{education.coursessc}}"></td>
+                </tr>
+
+                <tr>
+                    <th>SSC School/University</th>
+                    <td><input type="text" name="universityssc" class="form-control" value="{{education.universityssc}}"></td>
+                </tr>
+
+                <tr>
+                    <th>Year of Passing SSC</th>
+                    <td><input type="text" name="graduationyrssc" class="form-control" value="{{education.graduationyrssc}}"></td>
+                </tr>
+
+                <tr>
+                    <th>Percent in SSC</th>
+                    <td><input type="text" name="percentagessc" class="form-control" value="{{education.percentagessc}}"></td>
+                </tr>
+
+
+                <tr>
+                    <th>HSC Course Name</th>
+                    <td><input type="text" name="coursehsc" class="form-control" value="{{education.coursehsc}}"></td>
+                </tr>
+
+                <tr>
+                    <th>HSC School/University</th>
+                    <td><input type="text" name="universityhsc" class="form-control" value="{{education.universityhsc}}"></td>
+                </tr>
+
+                <tr>
+                    <th>Year of Passing HSC</th>
+                    <td><input type="text" name="graduationyrhsc" class="form-control" value="{{education.graduationyrhsc}}"></td>
+                </tr>
+
+                <tr>
+                    <th>Percent in HSC</th>
+                    <td><input type="text" name="percentagehsc" class="form-control" value="{{education.percentagehsc}}"></td>
+                </tr>
+
+            </table>
+                <input type="submit" value="Submit" class="btn btn-primary m-2 px-3 btn-sm">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% if error == "no" %}
+<script>
+    alert('Employee Education Details has been Updated');
+    window.location = ('{% url 'edit_education' education.user.id %}');
+</script>
+{% endif %}
+{% if error == "yes" %}
+<script>
+    alert('Something went wrong , Try Again...');
+
+</script>
+{% endif%}
+
+{% endblock %}

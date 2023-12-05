@@ -39,3 +39,33 @@ class EmployeeEducation(models.Model):
         return self.user.username
 
 
+class EmployeeExperience(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    company1name = models.CharField(max_length=100, null=True)
+    company1desig = models.CharField(max_length=100, null=True)
+    company1salary = models.CharField(max_length=100, null=True)
+    company1duration = models.CharField(max_length=100, null=True)
+    company2name = models.CharField(max_length=100, null=True)
+    company2desig = models.CharField(max_length=100, null=True)
+    company2salary = models.CharField(max_length=100, null=True)
+    company2duration = models.CharField(max_length=100, null=True)
+    company3name = models.CharField(max_length=100, null=True)
+    company3desig = models.CharField(max_length=100, null=True)
+    company3salary = models.CharField(max_length=100, null=True)
+    company3duration = models.CharField(max_length=100, null=True)
+
+    def __str__(self):
+        return self.user.username
+
+      
+      
+    class LeaveRequests(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    empid = models.CharField(max_length=50, default='')
+    startdate = models.DateField(null=True, blank=True)
+    enddate = models.DateField(null=True, blank=True)
+    reason = models.TextField()
+    status = models.CharField(max_length=20, default='Pending')
+
+    def _str_(self):
+        return self.user.username
