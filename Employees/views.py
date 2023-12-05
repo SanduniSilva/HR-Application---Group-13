@@ -106,3 +106,51 @@ def my_education(request):
     user = request.user
     education = EmployeeEducation.objects.get(user=user)
     return render(request, 'my_education.html', locals())
+
+
+from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
+from .models import LeaveRequests, EmployeeExperience, EmployeeEducation, EmployeeDetail
+
+def leave_request(request):
+    if not request.user.is_authenticated:
+        return redirect('emp_base')
+
+    error = ""
+    user = request.user
+
+    try:
+        leave = LeaveRequests.objects.get(user=user)
+    except LeaveRequests.DoesNotExist:
+        # Handle the case where the LeaveRequests object does not exist for the user
+        leave = LeaveRequests(user=user)
+        leave.save()
+
+    if request.method == "POST":
+        sd = request.POST['startdate']
+        ed = request.POST['enddate']
+        ei = request.POST['empid']
+        re_n = request.POST['reason']
+
+        leave.startdate = sd
+        leave.enddate = ed
+        leave.empid = ei
+        leave.reason = re_n
+
+        try:
+            leave.save()
+            error = "no"
+        except Exception as e:
+            print(f"Error: {e}")
+            error = "yes"
+
+    return render(request, 'leave_request.html', locals())
+
+
+def leaves(request):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    leave = LeaveRequests.objects.all()
+    return render(request, 'leaves.html', locals())
+
+
