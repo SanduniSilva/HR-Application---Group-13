@@ -38,13 +38,4 @@ class EmployeeEducation(models.Model):
     def __str__(self):
         return self.user.username
 
-class LeaveRequests(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    empid = models.CharField(max_length=50, default='')
-    startdate = models.DateField(null=True, blank=True)
-    enddate = models.DateField(null=True, blank=True)
-    reason = models.TextField()
-    status = models.CharField(max_length=20, default='Pending')
 
-    def _str_(self):
-        return self.user.username

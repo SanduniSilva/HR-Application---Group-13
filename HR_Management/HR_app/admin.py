@@ -4,5 +4,4 @@ from .models import *
 
 admin.site.register(EmployeeDetail)
 admin.site.register(EmployeeEducation)
-admin.site.register(LeaveRequests)
 
