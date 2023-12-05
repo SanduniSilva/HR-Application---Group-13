@@ -57,6 +57,7 @@
            <a href="{% url 'admin_home' %}" class="list-group-item list-group-item-danger list-group-item-action {% if request.path == '/admin_home' %} active {% endif %}">Dashboard</a>
            <a href="{% url 'all_employee' %}" class="list-group-item list-group-item-danger list-group-item-action {% if request.path == '/all_employee' %} active {% endif %}">All Employee</a>
            <a href="{% url 'admin_changepassword' %}" class="list-group-item list-group-item-danger list-group-item-action {% if request.path == '/admin_changepassword' %} active {% endif %}">Change Password</a>
+           <a href="{% url 'leaves' %}" class="list-group-item list-group-item-danger list-group-item-action {% if request.path == '/leaves' %} active {% endif %}">Leave Requests</a>
            <a href="{% url 'logout'%}" class="list-group-item list-group-item-danger list-group-item-action">Logout</a>
        </div>
     </div>
