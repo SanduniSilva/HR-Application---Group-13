@@ -26,5 +26,7 @@ urlpatterns = [
     path('edit_profile/<int:pid>', edit_profile, name='edit_profile'),
     path('edit_education/<int:pid>', edit_education, name='edit_education'),
     path('edit_experience/<int:pid>', edit_experience, name='edit_experience'),
+    path('leave_request/', leave_request, name='leave_request'),
+    path('leaves/', leaves, name='leaves'),   
 ]
 
